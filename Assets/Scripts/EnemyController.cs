@@ -2,13 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class EnemyController : MonoBehaviour
 {
+  public static EnemyController Instance { get; private set; }
   public float speed;
   public bool vertical;
   public float changeTime = 3.0f;
 
   public ParticleSystem smokeEffect;
+
+  public ParticleSystem getHitEffect;
 
   Rigidbody2D rigidbody2DRobot;
   float timer;
@@ -19,6 +23,13 @@ public class EnemyController : MonoBehaviour
 
   AudioSource audioSource;
   public AudioClip getHitClip;
+
+  private void Awake()
+  {
+    Instance = this;
+    getHitEffect.Stop();
+    // smokeEffect.Stop();
+  }
 
   // Start is called before the first frame update
   void Start()
@@ -92,12 +103,12 @@ public class EnemyController : MonoBehaviour
     animator.SetTrigger("Fixed");
 
     smokeEffect.Stop();
+    gameObject.tag = "FixedRobot";
   }
 
   public void GetHitSoundByRuby(AudioClip clip)
   {
     audioSource.PlayOneShot(clip);
   }
-
 
 }

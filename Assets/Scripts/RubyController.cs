@@ -11,6 +11,7 @@ public class RubyController : MonoBehaviour
   public int maxHealth = 5;
 
   public GameObject projectilePrefab;
+
   public int numProjectiles;
 
   public int health { get { return currentHealth; } }
@@ -32,11 +33,6 @@ public class RubyController : MonoBehaviour
   BoxCollider2D collide;
 
   Vector2 lookDirection = new Vector2(1, 0);
-
-  void Awake()
-  {
-    UpdateAmmo();
-  }
 
   // Start is called before the first frame update
   void Start()
@@ -147,7 +143,7 @@ public class RubyController : MonoBehaviour
     {
       GameObject projectileObject = Instantiate(projectilePrefab, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
       Projectile projectile = projectileObject.GetComponent<Projectile>();
-      projectile.Launch(lookDirection, 300);
+      projectile.Launch(lookDirection, 900);
 
       numProjectiles--;
 

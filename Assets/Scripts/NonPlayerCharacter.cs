@@ -1,10 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class NonPlayerCharacter : MonoBehaviour
 {
-  public float displayTime = 4.0f;
+  public float displayTime = 2.0f;
   public GameObject dialogBox;
   float timerDisplay;
 
@@ -24,6 +25,7 @@ public class NonPlayerCharacter : MonoBehaviour
       if (timerDisplay < 0)
       {
         dialogBox.SetActive(false);
+        QuestionDialogUI.Instance.ShowQuestion("This question is so dangerous. Are you sure?", yesAction, noAction);
       }
     }
   }
@@ -32,5 +34,15 @@ public class NonPlayerCharacter : MonoBehaviour
   {
     timerDisplay = displayTime;
     dialogBox.SetActive(true);
+  }
+
+  private void yesAction()
+  {
+    QuestDetailUI.Instance.Show();
+  }
+
+  private void noAction()
+  {
+    Debug.Log("No");
   }
 }

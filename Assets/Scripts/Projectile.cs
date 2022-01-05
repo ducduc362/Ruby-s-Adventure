@@ -35,6 +35,8 @@ public class Projectile : MonoBehaviour
     {
       e.Fix();
       e.GetHitSoundByRuby(getHitByRuby);
+      // e.getHitEffect.Play();
+      // Debug.Log("Here");
     }
 
     Destroy(gameObject);

@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ammoAvailable: {fileID: 0}
-  speed: 3
+  speed: 15
   maxHealth: 5
   projectilePrefab: {fileID: 9096031421973286762, guid: d7f735ad4a2419541b2ffe84fbfc6208, type: 3}
   numProjectiles: 0
